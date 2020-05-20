@@ -13,7 +13,7 @@ function isValidZip(input) {
 }
 
 function isValidCityState(input) {
-  return /\b[A-Z][a-zA-Z]+[ ]?[A-Z]{2}\b/.test(input);
+  return /^[A-Za-z . ,'-]+$/.test(input);
 }
 
 function printWeather(city, temp) {
@@ -29,7 +29,7 @@ function getWeather(input) {
     peram = "q=";
   } else {
     console.log(
-      "Please enter valid city, state or zipcode to get current weather (example: 90210) (example: Portland OR)"
+      "Please enter valid city, state or zipcode to get current weather (example: 90210) (example: Portland OR US)"
     );
   }
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?${peram}${input}&units=imperial&appid=0ca09cc294b445c91fbbe4f647178a23`;
